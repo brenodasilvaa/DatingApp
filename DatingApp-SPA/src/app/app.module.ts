@@ -7,6 +7,7 @@ import { ValueComponent } from './value/value.component';
 import { NavModule } from './nav/nav.module';
 import { ValueModule } from './value/value.module';
 import { HomeModule } from './home/home.module';
+import { ErrorInterceptorProvider } from './shared/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -19,7 +20,6 @@ import { HomeModule } from './home/home.module';
       HomeModule,
       ValueModule
    ],
-   providers: [],
    bootstrap: [
       AppComponent
    ],

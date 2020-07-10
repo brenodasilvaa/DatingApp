@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorInterceptorProvider } from '../shared/error.interceptor';
 
 @NgModule({
   imports: [
@@ -9,6 +10,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [RegisterComponent],
-  exports: [RegisterComponent]
+  exports: [RegisterComponent],
+  providers: [
+    ErrorInterceptorProvider
+ ],
 })
 export class RegisterModule { }
