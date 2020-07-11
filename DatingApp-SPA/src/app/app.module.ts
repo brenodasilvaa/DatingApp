@@ -7,12 +7,14 @@ import { NavModule } from './nav/nav.module';
 import { ValueModule } from './value/value.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptorProvider } from './shared/error.interceptor';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
    declarations: [
       AppComponent
    ],
    imports: [
+      AppRoutingModule,
       HttpClientModule,
       BrowserModule,
       NavModule,
