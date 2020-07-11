@@ -10,9 +10,6 @@ import { ErrorInterceptorProvider } from '../shared/error.interceptor';
     FormsModule
   ],
   declarations: [RegisterComponent],
-  exports: [RegisterComponent],
-  providers: [
-    ErrorInterceptorProvider
- ],
+  exports: [RegisterComponent]
 })
 export class RegisterModule { }
