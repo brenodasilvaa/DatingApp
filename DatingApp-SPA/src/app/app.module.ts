@@ -9,6 +9,7 @@ import { ValueModule } from './value/value.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptorProvider } from './shared/error.interceptor';
 import { AppRoutingModule } from './app-routing.module';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter() {
@@ -38,7 +39,7 @@ export function tokenGetter() {
       AppComponent
    ],
    providers: [
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
    ],
    schemas: [NO_ERRORS_SCHEMA]
 })
