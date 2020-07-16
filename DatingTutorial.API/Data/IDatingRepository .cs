@@ -12,5 +12,7 @@ namespace DatingTutorial.API.Data
          Task<bool> SaveAll();
          Task<IEnumerable<User>> GetUsers();
          Task<User> GetSingleUser(int id);
+         Task<Photo> GetPhoto(int id);
+         Task<Photo> GetMainPhotoForUser(int userId);
     }
 }

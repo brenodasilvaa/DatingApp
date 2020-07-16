@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 
 namespace DatingTutorial.API.Controllers
 {
@@ -18,8 +19,10 @@ namespace DatingTutorial.API.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly IMapper _mapper;
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
         {
+            this._mapper = mapper;
             this._config = config;
             this._repo = repo;
 
@@ -67,7 +70,8 @@ namespace DatingTutorial.API.Controllers
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-                var tokenDescriptor = new SecurityTokenDescriptor {
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
 
                     Subject = new ClaimsIdentity(claims),
                     Expires = DateTime.Now.AddDays(1),
@@ -78,8 +82,12 @@ namespace DatingTutorial.API.Controllers
 
                 var token = tokenHandler.CreateToken(tokenDescriptor);
 
-                return Ok( new {
-                    token = tokenHandler.WriteToken(token)
+                var user = _mapper.Map<UserForListDto>(userFromRepo);
+
+                return Ok(new
+                {
+                    token = tokenHandler.WriteToken(token),
+                    user
                 });
             }
         }
