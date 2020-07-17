@@ -7,6 +7,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FormsModule } from '@angular/forms';
 import { PreventUnsavedChanges } from 'src/app/_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorModule } from '../photo-editor/photo-editor.module';
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PhotoEditorModule } from '../photo-editor/photo-editor.module';
     TabsModule.forRoot(),
     NgxGalleryModule,
     FormsModule,
-    PhotoEditorModule
+    PhotoEditorModule,
+    TimeagoModule.forRoot()
   ],
   declarations: [MemberEditComponent],
   schemas: [NO_ERRORS_SCHEMA]
