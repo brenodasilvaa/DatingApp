@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
-import { FormsModule } from '@angular/forms';
-import { ErrorInterceptorProvider } from '../shared/error.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
   ],
   declarations: [RegisterComponent],
   exports: [RegisterComponent]

@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptorProvider } from './shared/error.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export function tokenGetter() {
@@ -23,7 +24,7 @@ export function tokenGetter() {
    imports: [
       AppRoutingModule,
       HttpClientModule,
-      BrowserModule,
+      BrowserAnimationsModule,
       NavModule,
       HomeModule,
       ValueModule,
