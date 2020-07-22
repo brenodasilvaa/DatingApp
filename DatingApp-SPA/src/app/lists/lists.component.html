@@ -1,3 +1,33 @@
-<p>
-  lists works!
-</p>
+<div class="text-center mt-3">
+  <h2>Your likes - {{pagination.totalItems}} found</h2>
+</div>
+
+<div class="container mt-3">
+
+  <form #form="ngForm" class="form-inline" novalidate>
+    
+    <div class="col">
+      <div class="btn-group float-center">
+        <button type="button" name="likesParams" class="btn btn-primary mr-2" 
+          [(ngModel)]="likesParams" (click)="loadUsers()"  btnRadio="Likers">Members who liked you</button>
+        <button type="button" name="likesParams" class="btn btn-primary" 
+          [(ngModel)]="likesParams" (click)="loadUsers()" btnRadio="Likees">Members you've liked</button>
+      </div>
+    </div>
+
+  </form>
+  <br>
+
+  <div class="row">
+    <div *ngFor="let user of users" class="col-lg-2 col-md-3 col-sm-6">
+      <app-member-card [user]="user"></app-member-card>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+    lastText="&raquo;">
+  </pagination>
+</div>
