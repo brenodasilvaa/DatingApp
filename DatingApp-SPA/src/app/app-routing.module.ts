@@ -5,7 +5,6 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'members', canActivate: [AuthGuard], loadChildren:
     () => import('./members/members-list/members-list.module').then(m => m.MembersListModule) },
